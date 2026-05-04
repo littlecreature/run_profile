@@ -1,0 +1,56 @@
+[gd_resource type="Resource" script_class="RunProfileSet" format=3 uid="uid://bll4j6tmqh7tg"]
+
+[ext_resource type="Script" uid="uid://dr6cyvl3qisr5" path="res://addons/run_profile/run_profile.gd" id="1_p853j"]
+[ext_resource type="Script" uid="uid://ci7oom40xq5vr" path="res://addons/run_profile/run_profile_set.gd" id="1_wxa5m"]
+[ext_resource type="Texture2D" uid="uid://bg1fyimo8gvb2" path="res://addons/run_profile/icons/off.png" id="2_arv8c"]
+[ext_resource type="Texture2D" uid="uid://cvobtpsre4vcg" path="res://addons/run_profile/icons/check.png" id="3_3cqdm"]
+[ext_resource type="Texture2D" uid="uid://b7iya04p625jd" path="res://addons/run_profile/icons/expand.png" id="4_vy2pr"]
+[ext_resource type="Texture2D" uid="uid://dea2t6c0eclui" path="res://addons/run_profile/icons/window.png" id="5_30psp"]
+[ext_resource type="Texture2D" uid="uid://c6awb1f6fy6ji" path="res://addons/run_profile/icons/top-left.png" id="6_neamg"]
+[ext_resource type="Texture2D" uid="uid://da45s1d6vpn2n" path="res://addons/run_profile/icons/center.png" id="7_qivn8"]
+
+[sub_resource type="Resource" id="Resource_1w38i"]
+script = ExtResource("1_p853j")
+id = "0"
+display_name = "Default"
+icon = ExtResource("2_arv8c")
+metadata/_custom_type_script = "uid://dr6cyvl3qisr5"
+
+[sub_resource type="Resource" id="Resource_o4fyr"]
+script = ExtResource("1_p853j")
+id = "1"
+display_name = "Ultra Wide"
+icon = ExtResource("3_3cqdm")
+metadata/_custom_type_script = "uid://dr6cyvl3qisr5"
+
+[sub_resource type="Resource" id="Resource_bdwjw"]
+script = ExtResource("1_p853j")
+id = "2"
+display_name = "Fullscreen"
+icon = ExtResource("4_vy2pr")
+metadata/_custom_type_script = "uid://dr6cyvl3qisr5"
+
+[sub_resource type="Resource" id="Resource_bmegg"]
+script = ExtResource("1_p853j")
+id = "3"
+display_name = "Max Window"
+icon = ExtResource("5_30psp")
+metadata/_custom_type_script = "uid://dr6cyvl3qisr5"
+
+[sub_resource type="Resource" id="Resource_l3vry"]
+script = ExtResource("1_p853j")
+id = "4"
+display_name = "Top Left"
+icon = ExtResource("6_neamg")
+metadata/_custom_type_script = "uid://dr6cyvl3qisr5"
+
+[sub_resource type="Resource" id="Resource_5iweh"]
+script = ExtResource("1_p853j")
+id = "5"
+display_name = "Center"
+icon = ExtResource("7_qivn8")
+metadata/_custom_type_script = "uid://dr6cyvl3qisr5"
+
+[resource]
+script = ExtResource("1_wxa5m")
+profiles = Array[ExtResource("1_p853j")]([SubResource("Resource_1w38i"), SubResource("Resource_o4fyr"), SubResource("Resource_bdwjw"), SubResource("Resource_bmegg"), SubResource("Resource_l3vry"), SubResource("Resource_5iweh")])
