@@ -18,15 +18,20 @@ enum WindowMode {
 }
 
 func _enter_tree():
-
-	# Load profile data
-	_load_profiles()
-
+	
 	# Toolbar button
 	button = Button.new()
 	button.flat = true
 	button.tooltip_text = "Run Profiles"
 	button.icon = load("res://addons/run_profile/icons/off.png")
+	
+	# Load profile data
+	_load_profiles()
+	
+	# Load last selected
+	var last_id : int = load_last_selected()
+	_mark_selected(last_id)
+	change_editor_settings(last_id)
 
 	add_control_to_container(EditorPlugin.CONTAINER_TOOLBAR, button)
 
@@ -45,12 +50,15 @@ func _enter_tree():
 # ─────────────────────────────────────────────
 
 func _load_profiles():
-	profile_set_original = load(PROFILE_SET_PATH)
-	profile_set = profile_set_original
+	profile_set = load(PROFILE_SET_PATH)
 	assert(profile_set != null)
+	
+func _mark_selected(id: int) -> void:
+	if profile_set.profiles[id] != null:
+		profile_set.profiles[id].selected = true
+		button.icon = profile_set.profiles[id].icon
 
 func _build_popup_menu():
-	profile_set = profile_set_original
 	popup_menu.clear()
 
 	for i in profile_set.profiles.size():
@@ -113,21 +121,39 @@ func _on_menu_selected(id: int):
 	#print("Selected profile:", id)
 	#print(profile_set.profiles[id].mode)
 	_reset_popup_menu()
-	var icon = profile_set.profiles[id].icon
-	button.icon = icon
-	profile_set.profiles[id].selected = true
+	#profile_set.profiles[id].selected = true
+	_mark_selected(id)
 	_build_popup_menu()
 	
-	change_editor_settings(profile_set.profiles[id])
+	change_editor_settings(id)
+	
+	save_selected(id)
+	
+
+func save_selected(id: int) -> void:
+	#print("Saving profile: ", id)
+	var cfg := ConfigFile.new()
+	cfg.set_value("run_profile", "last_id", id)
+	cfg.save("res://addons/run_profile/settings.cfg")
+	
+func load_last_selected() -> int:
+	var cfg := ConfigFile.new()
+	var err := cfg.load("res://addons/run_profile/settings.cfg")
+	if err == OK:
+		var last_id := cfg.get_value("run_profile", "last_id", null)
+		if last_id != null:
+			return last_id
+	return 0
 
 # ─────────────────────────────────────────────
 # Change the editor settings
 # ─────────────────────────────────────────────
 
-func change_editor_settings(profile : RunProfile):
-	print(profile.mode)
-	print(profile.custom_position.x)
-	print(profile.custom_position.y)
+func change_editor_settings(id : int):
+	var profile = profile_set.profiles[id]
+	#print(profile.mode)
+	#print(profile.custom_position.x)
+	#print(profile.custom_position.y)
 	if profile.custom_position is not Vector2i:
 		profile.custom_position = Vector2i.ZERO
 
