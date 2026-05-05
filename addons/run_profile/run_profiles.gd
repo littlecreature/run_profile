@@ -105,6 +105,7 @@ func _reposition_popup():
 
 func _on_menu_selected(id: int):
 	#print("Selected profile:", id)
+	#print(profile_set.profiles[id].mode)
 	_reset_popup_menu()
 	var icon = profile_set.profiles[id].icon
 	button.icon = icon

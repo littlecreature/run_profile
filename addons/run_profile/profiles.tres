@@ -21,6 +21,7 @@ script = ExtResource("1_p853j")
 id = "1"
 display_name = "Ultra Wide"
 icon = ExtResource("3_3cqdm")
+mode = 2
 metadata/_custom_type_script = "uid://dr6cyvl3qisr5"
 
 [sub_resource type="Resource" id="Resource_bdwjw"]
@@ -28,6 +29,7 @@ script = ExtResource("1_p853j")
 id = "2"
 display_name = "Fullscreen"
 icon = ExtResource("4_vy2pr")
+mode = 4
 metadata/_custom_type_script = "uid://dr6cyvl3qisr5"
 
 [sub_resource type="Resource" id="Resource_bmegg"]
@@ -35,6 +37,8 @@ script = ExtResource("1_p853j")
 id = "3"
 display_name = "Max Window"
 icon = ExtResource("5_30psp")
+selected = true
+mode = 3
 metadata/_custom_type_script = "uid://dr6cyvl3qisr5"
 
 [sub_resource type="Resource" id="Resource_l3vry"]
@@ -42,6 +46,7 @@ script = ExtResource("1_p853j")
 id = "4"
 display_name = "Top Left"
 icon = ExtResource("6_neamg")
+mode = 0
 metadata/_custom_type_script = "uid://dr6cyvl3qisr5"
 
 [sub_resource type="Resource" id="Resource_5iweh"]
@@ -49,7 +54,6 @@ script = ExtResource("1_p853j")
 id = "5"
 display_name = "Center"
 icon = ExtResource("7_qivn8")
-selected = true
 metadata/_custom_type_script = "uid://dr6cyvl3qisr5"
 
 [resource]
