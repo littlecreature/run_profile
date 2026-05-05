@@ -157,32 +157,6 @@ func set_editor_custom_position(position : Vector2i) -> void:
 	settings.set_setting("run/window_placement/rect_custom_position", position)
 	return
 	
-	
-func apply_editor_window_placement():
-	var mode := get_editor_window_mode()
-
-	match mode:
-		WindowMode.TOP_LEFT:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-			DisplayServer.window_set_position(Vector2i.ZERO)
-
-		WindowMode.CENTERED:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-			var screen := DisplayServer.screen_get_size()
-			var window := DisplayServer.window_get_size()
-			DisplayServer.window_set_position((screen - window) / 2)
-
-		WindowMode.CUSTOM_POSITION:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
-			DisplayServer.window_set_position(get_editor_custom_position())
-
-		WindowMode.FORCE_MAXIMISED:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_MAXIMIZED)
-
-		WindowMode.FORCE_FULLSCREEN:
-			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
-
-
 # ─────────────────────────────────────────────
 # Clean up
 # ─────────────────────────────────────────────
