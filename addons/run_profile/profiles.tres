@@ -49,6 +49,7 @@ script = ExtResource("1_p853j")
 id = "5"
 display_name = "Center"
 icon = ExtResource("7_qivn8")
+selected = true
 metadata/_custom_type_script = "uid://dr6cyvl3qisr5"
 
 [resource]
