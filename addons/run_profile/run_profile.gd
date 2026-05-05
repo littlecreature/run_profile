@@ -14,6 +14,7 @@ enum WindowMode {
 @export var display_name: String
 @export var icon: Texture2D
 @export var selected: bool = false
+@export var enabled: bool = false
 
 @export_enum(
 	"Top Left",
@@ -24,5 +25,4 @@ enum WindowMode {
 )
 var mode: int = WindowMode.CENTERED
 
-@export var custom_x: int = 0
-@export var custom_y: int = 0
+@export var custom_position: Vector2i = Vector2i.ZERO
